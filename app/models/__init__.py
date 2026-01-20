@@ -1,1 +1,1 @@
-from .models import Joke
+from .models import user

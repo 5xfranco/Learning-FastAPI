@@ -1,1 +1,2 @@
-from .jokes import get_joke, get_jokes, delete_joke, create_joke
+from .users import get_user, get_users, delete_user, create_user
+from .users import *

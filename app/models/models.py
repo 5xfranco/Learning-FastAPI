@@ -1,9 +1,10 @@
 from sqlalchemy import Column, Integer, String
 from ..database import Base
 
-class Joke(Base):
-    __tablename__ = "jokes"
+class user(Base):
+    __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    setup = Column(String, index=True)
-    punchline = Column(String, index=True)
+    name = Column(String, index=True)
+    email = Column(String, index=True)
+    password = Column(String, index=True)

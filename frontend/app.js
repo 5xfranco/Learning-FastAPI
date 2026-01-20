@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8001/jokes/"
+const API_URL = "http://127.0.0.1:8001/users/"
 
 async function loadData() {
     try {
@@ -7,7 +7,7 @@ async function loadData() {
 
         console.log(data)
         
-        const list = document.getElementById("joke-list")
+        const list = document.getElementById("user-list")
         list.innerHTML = ""
         
         data.forEach((element, index) => {
@@ -23,7 +23,7 @@ async function loadData() {
             btn.innerText = "X"
 
             btn.addEventListener("click", async () => {
-                await deleteJoke(index)
+                await deleteuser(index)
             })
 
 
@@ -37,7 +37,7 @@ async function loadData() {
     }
 }
 
-async function submitJoke(event){
+async function submituser(event){
     const setup = document.getElementById("setup").value
     const punchline = document.getElementById("punchline").value
 
@@ -52,7 +52,7 @@ async function submitJoke(event){
                 punchline: punchline
             })
         })
-        document.getElementById("joke-form").reset()
+        document.getElementById("user-form").reset()
         loadData()
     } catch {
         console.log("Failed to post")
@@ -60,7 +60,7 @@ async function submitJoke(event){
 }
 
 
-async function deleteJoke(id) {
+async function deleteuser(id) {
     try {
         await fetch(`${API_URL}${id}`, {
             method : "DELETE"
@@ -68,11 +68,11 @@ async function deleteJoke(id) {
         loadData();
         
     } catch {
-        console.log("Failed to delete joke")
+        console.log("Failed to delete user")
     }
     
 }
 
-document.getElementById("joke-form").addEventListener("submit", submitJoke)
+document.getElementById("user-form").addEventListener("submit", submituser)
 
 loadData()
